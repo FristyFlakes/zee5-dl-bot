@@ -16,7 +16,7 @@ async def handler(event):
 @client.on(events.NewMessage(pattern='/help'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat,"""**Hi, This Is** **Zee5** & **MX Player** **Video Transload Bot. You Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos.\n\nJust Copy Video Link From Zee5 Or MX Player & Send It To Me I Will Transload It & Send It To You.** \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n\n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\n**Format Should Be Like This, Else The Bot Will Not Work & No DRM Protected Or Premuim Videos Is Supported. \n\nFor More Help Ask @FlixHelpBot**""", no_webpage=True)
+    await client.send_message(chat,"""**Hi, This Is** **Zee5** & **MX Player** **Video Transload Bot. You Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos.\n\nJust Copy Video Link From Zee5 Or MX Player & Send It To Me I Will Transload It & Send It To You.** \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n\n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\n**Format Should Be Like This, Else The Bot Will Not Work & No DRM Protected Or Premuim Videos Is Supported. \n\nFor More Help Ask @FlixHelpBot**""")
 
 @client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 

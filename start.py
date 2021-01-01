@@ -11,12 +11,12 @@ client = TelegramClient('anfghohn', int(os.environ.get("APP_ID" )), os.environ.g
 @client.on(events.NewMessage(pattern='/start'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat,"""Hi, this is Zee5 & MX Player Video Uploader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. Send /help to now more. \n\nDeveloper: @AbirHasan2005 \nSupport Group: @linux_repo \nBy @Discovery_Updates""")
+    await client.send_message(chat,"""**Hi, This Is Zee5 & MX Player Video Transload Bot.\n\nYou Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos. \n\nSupport Bot: @FlixHelpBot \n\nSupport Channel: @FlixBots**""")
     
 @client.on(events.NewMessage(pattern='/help'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat, """Hi, this is **Zee5** & **MX Player** Video Transloader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. Just copy Video Link from Zee5 or MX Player and send it to me I will Transload it and send it to you. \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\nFormat should be like this, else bot will not work. And no DRM Protected or Premuim Videos Please. \n\nFor more help ask in @linux_repo""", no_webpage=True)
+    await client.send_message(chat,"""**Hi, This Is** **Zee5** & **MX Player** **Video Transload Bot. You Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos.\n\nJust Copy Video Link From Zee5 Or MX Player & Send It To Me I Will Transload It & Send It To You.** \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n\n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\n**Format Should Be Like This, Else The Bot Will Not Work & No DRM Protected Or Premuim Videos Is Supported. \n\nFor More Help Ask @FlixHelpBot**""")
 
 @client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 
@@ -35,7 +35,7 @@ async def handler(event):
     g1 = (r1["hls"][0].replace("drm", "hls") + req1["video_token"])
    # await client.send_file(chat,r1["image_url"],caption = r1["title"])
     markup = client.build_reply_markup(Button.url("Transloaded Link",urls.stream_baseurl+g1))
-    await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"]+"\n\n\n"+urls.stream_baseurl+g1,file=r1["image_url"])
+    await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"]+"\n\n**Link :**`"+urls.stream_baseurl+g1,file=r1["image_url"]`)
     #await client.send_message(chat, urls.stream_baseurl+g1)
 
     
@@ -47,7 +47,7 @@ async def handler(event):
     #A =requests.get("https://api.mxplay.com/v1/web/detail/video?type=movie&id="+link+"&platform=com.mxplay.desktop&device-density=2&userid=30bb09af-733a-413b-b8b7-b10348ec2b3d&platform=com.mxplay.mobile&content-languages=hi,en,ta").json()
     chat = await event.get_chat()
     markup = client.build_reply_markup(Button.url("Transloaded Link",video_d+A["stream"]['hls']['high']))
-    await client.send_message(chat,"Title: "+A["title"]+"\n\n\n"+video_d+A["stream"]['hls']['high'])
+    await client.send_message(chat,"Title: "+A["title"]+"\n\n**Link :**`"+video_d+A["stream"]['hls']['high']`)
     #await client.send_message(chat, video_d+A["stream"]['hls']['high'])
     print(A)
     print(link)

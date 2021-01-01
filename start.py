@@ -11,12 +11,12 @@ client = TelegramClient('anfghohn', int(os.environ.get("APP_ID" )), os.environ.g
 @client.on(events.NewMessage(pattern='/start'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat,"""**Hi, This Is Zee5 & MX Player Video Transload Bot.\n\nYou Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos. \n\nSupport Bot: @FlixHelpBot \n\nSupport Channel: @FlixBots**""", no_webpage=True""")
+    await client.send_message(chat,"""**Hi, This Is Zee5 & MX Player Video Transload Bot.\n\nYou Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos. \n\nSupport Bot: @FlixHelpBot \n\nSupport Channel: @FlixBots**""")
     
 @client.on(events.NewMessage(pattern='/help'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat,"""**Hi, This Is** **Zee5** & **MX Player** **Video Transload Bot. You Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos.\n\nJust Copy Video Link From Zee5 Or MX Player & Send It To Me I Will Transload It & Send It To You.** \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n\n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\n**Format Should Be Like This, Else The Bot Will Not Work & No DRM Protected Or Premuim Videos Is Supported. \n\nFor More Help Ask @FlixHelpBot**""")
+    await client.send_message(chat,"""**Hi, This Is** **Zee5** & **MX Player** **Video Transload Bot. You Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos.\n\nJust Copy Video Link From Zee5 Or MX Player & Send It To Me I Will Transload It & Send It To You.** \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n\n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\n**Format Should Be Like This, Else The Bot Will Not Work & No DRM Protected Or Premuim Videos Is Supported. \n\nFor More Help Ask @FlixHelpBot**""", no_webpage=True)
 
 @client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 

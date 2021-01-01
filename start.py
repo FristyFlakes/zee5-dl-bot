@@ -11,7 +11,7 @@ client = TelegramClient('anfghohn', int(os.environ.get("APP_ID" )), os.environ.g
 @client.on(events.NewMessage(pattern='/start'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat,"""**Hi, This Is Zee5 & MX Player Video Transload Bot.\n\nYou Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos. \n\nSupport Bot: @FlixHelpBot \n\nSupport Channel: @FlixBots**""")
+    await client.send_message(chat,"""**Hi, This Is Zee5 & MX Player Video Transload Bot.\n\nYou Can Use Me For Making Streamable Links Of Any Zee5 Or MX Player Videos.\n\nSee /help For More Information \n\nSupport Bot: @FlixHelpBot \n\nSupport Channel: @FlixBots**""")
     
 @client.on(events.NewMessage(pattern='/help'))
 async def handler(event):
@@ -35,7 +35,7 @@ async def handler(event):
     g1 = (r1["hls"][0].replace("drm", "hls") + req1["video_token"])
    # await client.send_file(chat,r1["image_url"],caption = r1["title"])
     markup = client.build_reply_markup(Button.url("Transloaded Link",urls.stream_baseurl+g1))
-    await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"]+"\n\n**Link:** "+urls.stream_baseurl+g1,file=r1["image_url"])
+    await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"]+"\n\n**Download Link:**\n"+urls.stream_baseurl+g1,file=r1["image_url"])
     #await client.send_message(chat, urls.stream_baseurl+g1)
 
     
@@ -47,7 +47,7 @@ async def handler(event):
     #A =requests.get("https://api.mxplay.com/v1/web/detail/video?type=movie&id="+link+"&platform=com.mxplay.desktop&device-density=2&userid=30bb09af-733a-413b-b8b7-b10348ec2b3d&platform=com.mxplay.mobile&content-languages=hi,en,ta").json()
     chat = await event.get_chat()
     markup = client.build_reply_markup(Button.url("Transloaded Link",video_d+A["stream"]['hls']['high']))
-    await client.send_message(chat,"Title: "+A["title"]+"\n\n**Link:** "+video_d+A["stream"]['hls']['high'])
+    await client.send_message(chat,"Title: "+A["title"]+"\n\n**Download Link:**\n"+video_d+A["stream"]['hls']['high'])
     #await client.send_message(chat, video_d+A["stream"]['hls']['high'])
     print(A)
     print(link)
